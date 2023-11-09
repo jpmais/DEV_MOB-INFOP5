@@ -1,0 +1,38 @@
+Pergunta: O que é PostBloc e qual é o seu propósito na aplicação?
+Resposta: PostBloc é uma classe que implementa a lógica de negócios para buscar e gerenciar postagens. Seu propósito é controlar o estado das postagens e lidar com eventos relacionados a elas.
+
+Pergunta: Como o EventTransformer é usado na definição do PostBloc? Qual é o objetivo de usar throttleDroppable com a duração throttleDuration?
+Resposta: O EventTransformer é usado para aplicar uma transformação de eventos ao PostBloc. throttleDroppable é usado para limitar a frequência dos eventos de busca de postagens, garantindo que não ocorram muito rapidamente. Isso ajuda a evitar solicitações excessivas ao servidor.
+
+Pergunta: Quais eventos são tratados pelo PostBloc? O que acontece quando ocorre o evento PostFetched?
+Resposta: O evento PostFetched é tratado pelo PostBloc. Quando esse evento ocorre, o Bloc tenta buscar mais postagens, atualizando o estado com as novas postagens recuperadas.
+
+Pergunta: Como as partes do código relacionadas ao PostBloc, como post_event.dart e post_state.dart, estão organizadas em módulos e separadas de outras funcionalidades?
+Resposta: As partes relacionadas ao PostBloc são divididas em arquivos separados usando a diretiva part e part of. Isso permite a organização e modularização do código em diferentes arquivos.
+
+Pergunta: Qual é o objetivo de dividir o código em partes separadas usando part e part of?
+Resposta: O objetivo é manter o código organizado e modular, permitindo que várias partes da lógica sejam definidas em arquivos separados, o que facilita a manutenção e a compreensão do código.
+
+Pergunta: O que é PostState e qual é a sua função na aplicação?
+Resposta: PostState é uma classe que representa o estado das postagens na aplicação. Ele armazena informações sobre o status das postagens, a lista de postagens e se o limite máximo foi atingido.
+
+Pergunta: Quais são os possíveis valores do campo status em PostState e o que cada um deles representa?
+Resposta: O campo status em PostState pode ser initial, success ou failure. initial representa o estado inicial, success indica que as postagens foram recuperadas com sucesso e failure indica um erro ao buscar as postagens.
+
+Pergunta: Como o campo posts em PostState é usado para armazenar os dados de postagens?
+Resposta: O campo posts é uma lista que armazena as postagens recuperadas. Ele é atualizado à medida que novas postagens são buscadas e adicionadas a ele.
+
+Pergunta: O que significa o campo hasReachedMax em PostState e quando ele é definido como true?
+Resposta: O campo hasReachedMax é um indicador de que o limite máximo de postagens foi atingido. Ele é definido como true quando não há mais postagens para buscar.
+
+Pergunta: Como o método copyWith é usado para criar uma cópia imutável do estado?
+Resposta: O método copyWith é usado para criar uma nova instância de PostState com campos atualizados. Ele retorna uma nova instância com os campos especificados e mantém o estado original imutável.
+
+Pergunta: Qual é o papel da classe PostsList na aplicação?
+Resposta: A classe PostsList é um widget que exibe a lista de postagens na interface do usuário. Ela interage com o PostBloc para buscar e mostrar as postagens.
+
+Pergunta: Como o ScrollController é utilizado na classe PostsList e qual é o seu propósito?
+Resposta: O ScrollController é usado para controlar o scroll da lista de postagens. Ele permite detectar quando o usuário rola a lista para o fundo, o que pode acionar a busca de mais postagens.
+
+Pergunta: Como a função _onScroll é chamada e quando ela é acionada?
+Resposta: A função _onScroll é chamada quando o usuário rola a lista. Ela verifica se o usuário chegou ao final da lista e, se sim, aciona a busca de mais postagens.
